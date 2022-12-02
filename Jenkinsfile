@@ -7,6 +7,11 @@ pipeline {
            steps {
                echo 'prod deployment done'
            }
+            post {
+                 always {
+                     jiraSendBuildInfo branch: 'main'
+                 }
+             }
        }
     }
 }
